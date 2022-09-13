@@ -56,8 +56,6 @@ namespace Specflow_Automation.StepDefinitions
         public void WhenIClickOnSaveOption()
         {
             AutomationHooks.driver.FindElement(By.XPath("//button[@type='submit']")).Click();
-
-
         }
 
         [Then(@"I should navigate to personal details")]

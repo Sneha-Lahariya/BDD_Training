@@ -23,7 +23,6 @@ namespace Specflow_Automation.StepDefinitions
         public void WhenIEnterUsernameAs(string username)
         {
             AutomationHooks.driver.FindElement(By.Name("username")).SendKeys(username);
-           // Console.Write(username);
         }
 
         [When(@"I enter password as '([^']*)'")]
@@ -34,7 +33,7 @@ namespace Specflow_Automation.StepDefinitions
         [When(@"I click on login")]
         public void WhenIClickOnLogin()
         {
-            Console.WriteLine("thanks");
+            AutomationHooks.driver.FindElement(By.XPath("//button[@type='submit']")).Click();
         }
 
         [Then(@"I should be navigate to '([^']*)' dashboard screen")]
