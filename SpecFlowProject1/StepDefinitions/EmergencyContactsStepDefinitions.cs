@@ -55,9 +55,9 @@ namespace SpecFlowProject1.StepDefinitions
         public void ThenIShouldSeeBeNavigatedToEmergencyContactsContainingTheEmergencyContactRecords()
         {
             Console.WriteLine("DONE");
-            //string actualName = AutomationHooks.driver.FindElement(By.XPath("//div[@class='oxd-table']")).Text;
+            //string actualData = AutomationHooks.driver.FindElement(By.XPath("//div[@class='oxd-table']")).Text;
             //string expectedName = tbl.Rows[0]["name"];
-            //Assert.Contains(expectedName, actualName);
+            //Assert.Contains(expectedName, actualData);
         }
     }
 }
