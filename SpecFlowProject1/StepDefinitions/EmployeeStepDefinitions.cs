@@ -8,16 +8,22 @@ namespace Specflow_Automation.StepDefinitions
     [Binding]
     public class EmployeeStepDefinitions
     {
+        private AutomationHooks hooks;
+        public EmployeeStepDefinitions(AutomationHooks hooks)
+        {
+            this.hooks = hooks;
+        }
+
         [When(@"I click on PIM")]
         public void WhenIClickOnPIM()
         {
-            AutomationHooks.driver.FindElement(By.XPath("//span[text()='PIM']")).Click();
+            hooks.driver.FindElement(By.XPath("//span[text()='PIM']")).Click();
         }
 
         [When(@"I click on Add Employee")]
         public void WhenIClickOnAddEmployee()
         {
-            AutomationHooks.driver.FindElement(By.XPath("//a[text()='Add Employee']")).Click();
+            hooks.driver.FindElement(By.XPath("//a[text()='Add Employee']")).Click();
         }
 
         [When(@"I add all details")]
@@ -32,21 +38,21 @@ namespace Specflow_Automation.StepDefinitions
             string password = table.Rows[0]["password"];
             string confirmPassword = table.Rows[0]["confirm_password"];
             string status = table.Rows[0]["status"];
-            AutomationHooks.driver.FindElement(By.Name("firstName")).SendKeys(fName);
-            AutomationHooks.driver.FindElement(By.Name("middleName")).SendKeys(mName);
+            hooks.driver.FindElement(By.Name("firstName")).SendKeys(fName);
+            hooks.driver.FindElement(By.Name("middleName")).SendKeys(mName);
             if (toggleLoginDetai.Equals("on"))
             {
-                AutomationHooks.driver.FindElement(By.XPath("//span[contains(@class,'oxd-switch-input')]")).Click();
-                AutomationHooks.driver.FindElement(By.XPath("//label[contains(text(),'Username')]/following::input")).SendKeys(UserName);
-                AutomationHooks.driver.FindElement(By.XPath("//label[contains(text(),'Password')]/following::input")).SendKeys(password);
-                AutomationHooks.driver.FindElement(By.XPath("//label[contains(text(),'Confirm Password')]/following::input")).SendKeys(confirmPassword);
+                hooks.driver.FindElement(By.XPath("//span[contains(@class,'oxd-switch-input')]")).Click();
+                hooks.driver.FindElement(By.XPath("//label[contains(text(),'Username')]/following::input")).SendKeys(UserName);
+                hooks.driver.FindElement(By.XPath("//label[contains(text(),'Password')]/following::input")).SendKeys(password);
+                hooks.driver.FindElement(By.XPath("//label[contains(text(),'Confirm Password')]/following::input")).SendKeys(confirmPassword);
                 if (status.ToLower().Equals("disabled"))
                 {
-                    AutomationHooks.driver.FindElement(By.XPath("//label[text()='Disabled']")).Click();
+                    hooks.driver.FindElement(By.XPath("//label[text()='Disabled']")).Click();
                 }
                 else
                 {
-                    AutomationHooks.driver.FindElement(By.XPath("//label[text()='Enabled']")).Click();
+                    hooks.driver.FindElement(By.XPath("//label[text()='Enabled']")).Click();
                 }
             }
         }
@@ -55,7 +61,7 @@ namespace Specflow_Automation.StepDefinitions
         [When(@"I click on save option")]
         public void WhenIClickOnSaveOption()
         {
-            AutomationHooks.driver.FindElement(By.XPath("//button[@type='submit']")).Click();
+            hooks.driver.FindElement(By.XPath("//button[@type='submit']")).Click();
         }
 
         [Then(@"I should navigate to personal details")]

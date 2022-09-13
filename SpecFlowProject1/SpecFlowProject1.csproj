@@ -16,6 +16,7 @@
     <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
     <PackageReference Include="FluentAssertions" Version="6.2.0" />
     <PackageReference Include="WebDriver.ChromeDriver.win32" Version="103.0.5060.53" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.4.2" />
   </ItemGroup>
 
   <ItemGroup>
